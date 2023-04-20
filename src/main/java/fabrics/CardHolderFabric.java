@@ -4,8 +4,7 @@ import main.java.Constants;
 import main.java.entity.Card;
 import main.java.entity.CardHolder;
 import main.java.entity.Gender;
-import main.java.fabrics.AddressFabric;
-import main.java.fabrics.CardFabric;
+
 
 import java.io.BufferedReader;
 import java.io.FileReader;

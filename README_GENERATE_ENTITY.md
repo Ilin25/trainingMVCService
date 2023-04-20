@@ -14,6 +14,7 @@
 Максимально отвязать генераторы друг от друга.Где это возможно.
 То есть Отдельно генератор банка.Генератор карты. Персинфо.
 Те поля которые сразу невозможно сгенерировать,а необходимо высчитывать по факту, догенерировать в генераторе холдера.
+
 public class CardHolder {
     private PersInfo persInfo;
     private PersDocument persDocument;
@@ -41,7 +42,7 @@ public class PersDocument
 public class Card 
     private Bank bank;
     private String number; // 12 цифр
-    private LocalDate issueDate; // Не позже 18 лет холдеру
+    private LocalDate issueDate; // Не  менее 18 лет холдеру
     private LocalDate valDate; + 5 лет
     private boolean isActive;
     

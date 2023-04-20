@@ -1,6 +1,5 @@
 package main.java.dto;
 
-
 import main.java.enums.ErrorsEnum;
 
 import java.util.ArrayList;

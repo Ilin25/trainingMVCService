@@ -26,7 +26,6 @@ public class PersInfoController {
      * */
 
     public PersInfoBetweenDateOfBirthResponse getPersInfo(PersInfoBetweenDateOfBirthRequest request){
-
         return null;
     }
 }
