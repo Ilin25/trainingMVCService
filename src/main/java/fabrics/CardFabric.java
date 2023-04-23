@@ -1,18 +1,19 @@
 package main.java.fabrics;
 
 
+import fabrics.BankFabric;
 import main.java.entity.Card;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class CardFabric {
-
-    public Card makeRandomCard(boolean isActive) {
-
-        return new Card(makeRandomNumber(), makeRandomDate(), isActive);
+    BankFabric bankFabric = new BankFabric();
+    public Card makeRandomCard(boolean isActive) throws IOException {
+        return new Card("Номер карты - "+makeRandomNumber(), makeRandomDate(), isActive,bankFabric.makeRandomBank());
     }
 
     private String makeRandomNumber(){
@@ -32,14 +33,14 @@ public class CardFabric {
     }
 
 
-    public List<Card> makeRandomCards (int activeCardCounter,int notActiveCardCounter) {
+    public List<Card> makeRandomCards (int activeCardCounter,int notActiveCardCounter) throws IOException {
         List<Card> randomCards = new ArrayList<>();
         randomCards.addAll(makeActiveCard(activeCardCounter));
         randomCards.addAll(makeNotActiveCard(notActiveCardCounter));
         return randomCards;
     }
 
-    private List<Card> makeActiveCard(int activeCardCounter) {
+    private List<Card> makeActiveCard(int activeCardCounter) throws IOException {
         List<Card> activeCards = new ArrayList<>(activeCardCounter);
         for (int i = 0; i < activeCardCounter; i++) {
             activeCards.add(makeRandomCard(true));
@@ -47,7 +48,7 @@ public class CardFabric {
         return activeCards;
     }
 
-    private List<Card> makeNotActiveCard(int notActiveCardCounter) {
+    private List<Card> makeNotActiveCard(int notActiveCardCounter) throws IOException {
         List<Card>  notActiveCards = new ArrayList<>(notActiveCardCounter);
         for (int i = 0; i < notActiveCardCounter; i++) {
             notActiveCards.add(makeRandomCard(false));

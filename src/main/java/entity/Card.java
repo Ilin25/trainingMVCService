@@ -2,16 +2,19 @@ package main.java.entity;
 
 import java.time.LocalDate;
 import java.util.Objects;
+import main.java.entity.Bank;
 
 public class Card {
-    private String number; // 12 цифр
+    private String number;
     private LocalDate issueDate;
     private boolean isActive;
+    private Bank bank;
 
-    public Card(String number, LocalDate issueDate, boolean isActive) {
+    public Card(String number, LocalDate issueDate, boolean isActive,Bank bank) {
         this.number = number;
         this.issueDate = issueDate;
         this.isActive = isActive;
+        this.bank = bank;
     }
     public Card(){
 
@@ -37,9 +40,16 @@ public class Card {
         return isActive;
     }
 
+    public Bank getBank() {
+        return bank;
+    }
+
+    public void setBank(Bank bank) {
+        this.bank = bank;
+    }
 
     public String toString() {
-        String result = String.format("%s %s %s.%n",number,issueDate,isActive);
+        String result = String.format("%s %s %s %s.%n",bank,number,issueDate,isActive);
         return result;
     }
 

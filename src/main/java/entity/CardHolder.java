@@ -1,5 +1,10 @@
 package main.java.entity;
 
+import main.java.entity.Address;
+import main.java.entity.Card;
+import main.java.entity.Gender;
+import main.java.entity.Bank;
+
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
@@ -15,11 +20,13 @@ public class CardHolder {
     private int age;
     private Address addresses;
 
+
     public CardHolder() {
 
     }
 
-    public CardHolder(String lastName, String firstName, String middleName, LocalDate dateOfBirth, Enum gender, List cards, int age, Address addresses) {
+    public CardHolder(String lastName, String firstName, String middleName, LocalDate dateOfBirth,
+                      Enum gender, List cards, int age, Address addresses) {
         this.lastName = lastName;
         this.firstName = firstName;
         this.middleName = middleName;
@@ -28,6 +35,7 @@ public class CardHolder {
         this.cards = cards;
         this.age = age;
         this.addresses =addresses;
+
     }
 
     public String getLastName() {
@@ -94,6 +102,8 @@ public class CardHolder {
         this.addresses = addresses;
     }
 
+
+
     @Override
     public String toString() {
         String declinationOfWordYears = null;
@@ -107,7 +117,8 @@ public class CardHolder {
             declinationOfWordYears = "лет";
         }
 
-        String result = String.format("%s %s %s %s %s %s %s%n" ,lastName, firstName, middleName, dateOfBirth, age +" "+ declinationOfWordYears,addresses, gender);
+        String result = String.format("%s %s %s %s %s %s %s%n" ,lastName, firstName, middleName, dateOfBirth,
+                age +" "+ declinationOfWordYears,addresses , gender);
 
         return result;
     }
@@ -118,7 +129,14 @@ public class CardHolder {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CardHolder holder = (CardHolder) o;
-        return Objects.equals(lastName, holder.lastName) && Objects.equals(firstName, holder.firstName) && Objects.equals(middleName, holder.middleName) && Objects.equals(dateOfBirth, holder.dateOfBirth) && Objects.equals(gender, holder.gender) && Objects.equals(cards, holder.cards) && Objects.equals(age, holder.age) && Objects.equals(addresses, holder.addresses);
+        return Objects.equals(lastName, holder.lastName)
+                && Objects.equals(firstName, holder.firstName)
+                && Objects.equals(middleName, holder.middleName)
+                && Objects.equals(dateOfBirth, holder.dateOfBirth)
+                && Objects.equals(gender, holder.gender) && Objects.equals(cards, holder.cards)
+                && Objects.equals(age, holder.age)
+                && Objects.equals(addresses, holder.addresses);
+
     }
 
     @Override

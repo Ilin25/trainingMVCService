@@ -1,9 +1,13 @@
 package main.java.fabrics;
 
+import fabrics.BankFabric;
 import main.java.Constants;
 import main.java.entity.Card;
 import main.java.entity.CardHolder;
 import main.java.entity.Gender;
+import main.java.fabrics.AddressFabric;
+import main.java.fabrics.CardFabric;
+
 
 
 import java.io.BufferedReader;
@@ -19,6 +23,7 @@ public class CardHolderFabric {
 
     private final CardFabric cardFabric = new CardFabric();
     private final AddressFabric addressFabric = new AddressFabric();
+
 
     public CardHolder makeRandomHolder(Gender gender) throws IOException {
         CardHolder holder = new CardHolder();
@@ -99,7 +104,7 @@ public class CardHolderFabric {
         holder.setMiddleName(splitFio[2]);
     }
 
-    private List<Card> generateRandomAmountActiveAndNotActiveCards(){
+    private List<Card> generateRandomAmountActiveAndNotActiveCards() throws IOException {
         int maxCard = 5;
         int minActiveCard = 1;
         int minNotActiveCard = 0;
