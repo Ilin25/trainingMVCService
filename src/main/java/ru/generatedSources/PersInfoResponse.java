@@ -1,5 +1,7 @@
 package ru.generatedSources;
 
+import ru.enums.ErrorsEnum;
+
 import java.util.List;
 /**В реальности эти классы будут генерироваться сторонней библиотекой */
 /** Блок иперсональной информации */

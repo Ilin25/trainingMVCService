@@ -10,8 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BankFabric {
+
     private List<String> readListBank() throws IOException {
-        List<String> randomBank= new ArrayList<>();
+
+        List<String> randomBank = new ArrayList<>();
         FileReader fileReader = new FileReader(Constants.FILE_BANK);
         BufferedReader br = new BufferedReader(fileReader);
         String line;
@@ -22,7 +24,10 @@ public class BankFabric {
         return randomBank;
 
     }
+    // TODO makeRandomNameBank заменить на makeRandomBankName
     private String makeRandomNameBank() throws IOException {
+        //TODO скорректровать множественные имена banksName,readListBank. Так же randomBank + Name
+
         List<String> banksName = readListBank();
         String randomBank;
         int minIndex = 0;
@@ -32,14 +37,17 @@ public class BankFabric {
         return randomBank;
 
     }
+
     private String makeRandomBikNumber(){
         int randomBik = (int) (Math.random() * ((999999999 - 100000000) + 1)) + 100000000;
         return "" + randomBik;
     }
+
     public Bank makeRandomBank() throws IOException {
         Bank bank = new Bank();
-        bank.setBik(",БИК № "+makeRandomBikNumber());
-        bank.setName("БАНК - "+makeRandomNameBank());
+        // TODO убрать префиксы для банка и бика
+        bank.setBik(",БИК № "+ makeRandomBikNumber());
+        bank.setName("БАНК - "+ makeRandomNameBank());
         return bank;
     }
 }

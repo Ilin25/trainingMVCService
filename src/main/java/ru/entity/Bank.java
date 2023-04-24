@@ -21,6 +21,7 @@ public class Bank {
     public void setName(String name) {
         this.name = name;
     }
+
     public String toString() {
         String result = String.format("%s %s.%n",name,bik);
         return result;

@@ -12,7 +12,7 @@
 
 Использовать генераторы которые уже делали,что то придётся прикрутить,что-то изменить,где-то поменять логику генерации.
 Максимально отвязать генераторы друг от друга.Где это возможно.
-То есть Отдельно генератор банка.Генератор карты. Персинфо.
+То есть Отдельно генератор банка.Генератор карты. Генератор Персинфо.
 Те поля которые сразу невозможно сгенерировать,а необходимо высчитывать по факту, догенерировать в генераторе холдера.
 
 public class CardHolder {
@@ -37,17 +37,17 @@ public class PersDocument
      private String series;
      private String number;
      private LocalDate issueDate; // Дата выдачи - 18 лет (Отсчитывать от даты рождения)
-     private LocalDate valDate; // + 25 лет от даты выдачи
+     private LocalDate valDate; // Срок действия + 25 лет от даты выдачи
 
 public class Card 
     private Bank bank;
     private String number; // 12 цифр
-    private LocalDate issueDate; // Не  менее 18 лет холдеру
-    private LocalDate valDate; + 5 лет
+    private LocalDate issueDate; // Не  менее 18 лет холдеру этой карты.
+    private LocalDate valDate; Срок действия + 5 лет
     private boolean isActive;
     
-private class Bank
-    private String bik; //9 цифр (возможные значения - 111111111,222222222,333333333,444444444 и т.д до 999999999)
+public class Bank
+    private String bik; // 9 цифр (возможные значения - 111111111,222222222,333333333,444444444 и т.д до 999999999)
     private String name; // Сбер Банк, ВТБ и т.д
  
 2. Вставить генерацию холдеров в PersInfoDaoImpl, 

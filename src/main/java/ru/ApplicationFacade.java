@@ -14,7 +14,6 @@ public class ApplicationFacade {
         Util.viewHolders(cardHolders);
 
 
-
         /**Здесь будет создание сущностей и запуск приложения*/
 
     }
