@@ -14,14 +14,18 @@ public class CardHolder {
     private List<Card> cards;
     private int age;
     private Address addresses;
+    private PersDocument persDocument;
+    private PersInfo persInfo;
 
 
     public CardHolder() {
 
     }
 
-    public CardHolder(String lastName, String firstName, String middleName, LocalDate dateOfBirth,
+    public CardHolder(PersInfo persInfo,PersDocument persDocument,String lastName, String firstName, String middleName, LocalDate dateOfBirth,
                       Enum gender, List cards, int age, Address addresses) {
+        this.persInfo = persInfo;
+        this.persDocument = persDocument;
         this.lastName = lastName;
         this.firstName = firstName;
         this.middleName = middleName;
@@ -97,7 +101,21 @@ public class CardHolder {
         this.addresses = addresses;
     }
 
+    public PersDocument getPersDocument() {
+        return persDocument;
+    }
 
+    public void setPersDocument(PersDocument persDocument) {
+        this.persDocument = persDocument;
+    }
+
+    public PersInfo getPersInfo() {
+        return persInfo;
+    }
+
+    public void setPersInfo(PersInfo persInfo) {
+        this.persInfo = persInfo;
+    }
 
     @Override
     public String toString() {
@@ -112,7 +130,7 @@ public class CardHolder {
             declinationOfWordYears = "лет";
         }
 
-        String result = String.format("%s %s %s %s %s %s %s%n" ,lastName, firstName, middleName, dateOfBirth,
+        String result = String.format("%s %s %s %s %s %s %s %s %s%n" ,persDocument,persInfo,lastName, firstName, middleName, dateOfBirth,
                 age +" "+ declinationOfWordYears,addresses , gender);
 
         return result;

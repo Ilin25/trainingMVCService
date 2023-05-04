@@ -18,6 +18,7 @@ public class CardHolderFabric {
 
     private final CardFabric cardFabric = new CardFabric();
     private final AddressFabric addressFabric = new AddressFabric();
+    private final PersDocumentFabric persDocumentFabric = new PersDocumentFabric();
 
 
     public CardHolder makeRandomHolder(Gender gender) throws IOException {
@@ -30,6 +31,7 @@ public class CardHolderFabric {
         Period period = Period.between(holder.getDateOfBirth(), LocalDate.now());
         holder.setAge(period.getYears());
         holder.setAddresses(addressFabric.makeRandomAddress());
+        holder.setPersDocument(persDocumentFabric.makeRandomPersDocument(holder.getDateOfBirth()));
         return holder;
     }
 
