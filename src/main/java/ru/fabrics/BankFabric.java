@@ -20,21 +20,19 @@ public class BankFabric {
         while ((line = br.readLine()) != null) {
             randomBank.add(line);
         }
-
         return randomBank;
 
     }
-    // TODO makeRandomNameBank заменить на makeRandomBankName
-    private String makeRandomNameBank() throws IOException {
-        //TODO скорректровать множественные имена banksName,readListBank. Так же randomBank + Name
+
+    private String makeRandomBankName() throws IOException {
 
         List<String> banksName = readListBank();
-        String randomBank;
+        String randomBankName;
         int minIndex = 0;
         int maxIndex = banksName.size()-1;
         int randomIndex = (int) ((Math.random() * (maxIndex-minIndex)) + minIndex);
-        randomBank = banksName.get(randomIndex);
-        return randomBank;
+        randomBankName = banksName.get(randomIndex);
+        return randomBankName;
 
     }
 
@@ -45,9 +43,8 @@ public class BankFabric {
 
     public Bank makeRandomBank() throws IOException {
         Bank bank = new Bank();
-        // TODO убрать префиксы для банка и бика
-        bank.setBik(",БИК № "+ makeRandomBikNumber());
-        bank.setName("БАНК - "+ makeRandomNameBank());
+        bank.setBik( makeRandomBikNumber());
+        bank.setName(makeRandomBankName());
         return bank;
     }
 }

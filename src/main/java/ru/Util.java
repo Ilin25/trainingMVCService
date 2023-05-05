@@ -13,8 +13,12 @@ public class Util {
         for (int i = 0; i < holders.size(); i++) {
             CardHolder currentHolder = holders.get(i);
             System.out.println(currentHolder);
-            List<Card> holderCards = currentHolder.getCards();
-            viewCards(holderCards);
+            if (currentHolder.getPersDocument()!= null) {
+                List<Card> holderCards = currentHolder.getCards();
+                if (!holderCards.isEmpty()) {
+                    viewCards(holderCards);
+                }
+            }
         }
     }
 
@@ -43,8 +47,8 @@ public class Util {
     private static void makeStringResultAndView(int counter, Map.Entry<String, CardHolder> entry, LocalDate localDate) {
         String lastIssueNumberCardToHolder=String.format
                 ("%s. %nИмя : %s%nОтество : %s%nДата рождения : %s%nГород рождения : %s%nНомер карты : %s%nДата выдачи карты : %s%nУлица :%s%n"
-                ,counter,entry.getValue().getFirstName(),entry.getValue().getLastName(),
-                entry.getValue().getDateOfBirth(),
+                ,counter,entry.getValue().getPersInfo().getFirstName(),entry.getValue().getPersInfo().getLastName(),
+                entry.getValue().getPersInfo().getDateOfBirth(),
                 entry.getValue().getAddresses().getCity(),
                 entry.getKey(),localDate,entry.getValue().getAddresses().getStreet());
         System.out.println(lastIssueNumberCardToHolder);

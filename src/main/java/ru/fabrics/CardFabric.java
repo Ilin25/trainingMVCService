@@ -4,15 +4,27 @@ import ru.entity.Card;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class CardFabric {
     BankFabric bankFabric = new BankFabric();
-    public Card makeRandomCard(boolean isActive) throws IOException {
-        return new Card("Номер карты - "+makeRandomNumber(), makeRandomDate(), isActive,bankFabric.makeRandomBank());
+    public Card makeRandomCard() throws IOException {
+        Card card = new Card();
+        card.setNumber(makeRandomNumber());
+        card.setIssueDate(makeRandomDate());
+        card.setBank(bankFabric.makeRandomBank());
+        card.setValDate(card.getIssueDate().plusYears(5));
+        Period period = Period.between(card.getIssueDate(), LocalDate.now());
+        if(period.getYears()<5){
+            card.setIsActive(true);
+        }
+
+        return card;
     }
+
 
     private String makeRandomNumber(){
         int randomNumber1 = (int) (Math.random() * ((9999 - 1000) + 1)) + 1000;
@@ -31,26 +43,12 @@ public class CardFabric {
     }
 
 
-    public List<Card> makeRandomCards (int activeCardCounter,int notActiveCardCounter) throws IOException {
+    public List<Card> makeRandomCards (int cardCounter) throws IOException {
         List<Card> randomCards = new ArrayList<>();
-        randomCards.addAll(makeActiveCard(activeCardCounter));
-        randomCards.addAll(makeNotActiveCard(notActiveCardCounter));
+        for (int i = 0; i < cardCounter; i++) {
+            randomCards.add(makeRandomCard());
+        }
         return randomCards;
     }
 
-    private List<Card> makeActiveCard(int activeCardCounter) throws IOException {
-        List<Card> activeCards = new ArrayList<>(activeCardCounter);
-        for (int i = 0; i < activeCardCounter; i++) {
-            activeCards.add(makeRandomCard(true));
-        }
-        return activeCards;
-    }
-
-    private List<Card> makeNotActiveCard(int notActiveCardCounter) throws IOException {
-        List<Card>  notActiveCards = new ArrayList<>(notActiveCardCounter);
-        for (int i = 0; i < notActiveCardCounter; i++) {
-            notActiveCards.add(makeRandomCard(false));
-        }
-        return notActiveCards;
-    }
 }

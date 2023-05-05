@@ -8,12 +8,14 @@ public class Card {
     private LocalDate issueDate;
     private boolean isActive;
     private Bank bank;
+    private LocalDate valDate;
 
-    public Card(String number, LocalDate issueDate, boolean isActive,Bank bank) {
+    public Card(String number, LocalDate issueDate, boolean isActive,Bank bank,LocalDate valDate) {
         this.number = number;
         this.issueDate = issueDate;
         this.isActive = isActive;
         this.bank = bank;
+        this.valDate = valDate;
     }
     public Card(){
 
@@ -35,9 +37,9 @@ public class Card {
         this.issueDate = issueDate;
     }
 
-    public boolean isActive() {
-        return isActive;
-    }
+    public boolean setIsActive(boolean active ) {
+        return this.isActive = active;}
+
 
     public Bank getBank() {
         return bank;
@@ -47,8 +49,16 @@ public class Card {
         this.bank = bank;
     }
 
+    public LocalDate getValDate() {
+        return valDate;
+    }
+
+    public void setValDate(LocalDate valDate) {
+        this.valDate = valDate;
+    }
+
     public String toString() {
-        String result = String.format("%s %s %s %s.%n",bank,number,issueDate,isActive);
+        String result = String.format("%s %s %s %s %s.%n",bank,number,issueDate,isActive,valDate);
         return result;
     }
 

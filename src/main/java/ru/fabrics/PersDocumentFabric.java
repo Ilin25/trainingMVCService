@@ -9,12 +9,10 @@ import java.util.Random;
 public class PersDocumentFabric {
     public PersDocument makeRandomPersDocument(LocalDate dateOfBirth) {
         PersDocument persDocument = new PersDocument();
-        if (dateOfBirth.getYear()>=18) {
-            persDocument.setSeries(makeRandomSeriesPersDocument());
-            persDocument.setNumber(makeRandomNumberPersDocument());
-            persDocument.setIssueDate(makeIssueDatePersDocument(dateOfBirth));
-            persDocument.setValDate(makeValDate(persDocument.getIssueDate()));
-        }
+        persDocument.setSeries(makeRandomSeriesPersDocument());
+        persDocument.setNumber(makeRandomNumberPersDocument());
+        persDocument.setIssueDate(makeIssueDatePersDocument(dateOfBirth));
+        persDocument.setValDate(makeValDate(persDocument.getIssueDate()));
         return persDocument;
     }
 

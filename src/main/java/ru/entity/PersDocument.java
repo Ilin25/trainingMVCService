@@ -52,11 +52,7 @@ public class PersDocument {
 
     @Override
     public String toString() {
-        return
-                "series='" + series + '\'' +
-                ", number='" + number + '\'' +
-                ", issueDate=" + issueDate +
-                ", valDate=" + valDate +
-                '}';
+        String result = String.format("серия %s. номер %s. %s %s" ,series,number,issueDate,valDate);
+        return result;
     }
 }
