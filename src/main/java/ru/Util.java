@@ -12,7 +12,9 @@ public class Util {
     public static void viewHolders(List<CardHolder> holders) {
         for (int i = 0; i < holders.size(); i++) {
             CardHolder currentHolder = holders.get(i);
-            System.out.println(currentHolder);
+            System.out.println(currentHolder.getPersInfo().toString());
+            System.out.println(currentHolder.getPersDocument().toString());
+            System.out.println(currentHolder.getAddresses().toString());
             if (currentHolder.getPersDocument()!= null) {
                 List<Card> holderCards = currentHolder.getCards();
                 if (!holderCards.isEmpty()) {

@@ -16,6 +16,7 @@ public class PersDocumentFabric {
         return persDocument;
     }
 
+    //TODO Убрать пробел в серии
     private String makeRandomSeriesPersDocument() {
         int randomNumber = (int) (Math.random() * ((99 - 10) + 1)) + 10;
         int randomNumberTwo = (int) (Math.random() * ((99 - 10) + 1)) + 10;

@@ -22,7 +22,7 @@ public class CardHolderFabric {
     private final PersDocumentFabric persDocumentFabric = new PersDocumentFabric();
     private final PersInfoFabric persInfoFabric = new PersInfoFabric();
 
-
+// TODO Все холдеры должны быть старше 18 лет. Младше-не генерировать
     public CardHolder makeRandomHolder(Gender gender) throws IOException {
         CardHolder holder = new CardHolder();
         holder.setPersInfo(persInfoFabric.makeRandomPersInfo(gender));

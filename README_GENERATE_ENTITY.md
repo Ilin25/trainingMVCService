@@ -25,7 +25,7 @@ public class PersInfo
     private String lastName;
     private String firstName;
     private String middleName;
-    private LocalDate dateOfBirth;
+    private LocalDate dateOfBirth; // Не младше 18 лет
     private Enum<Gender> gender;
     
 public class Address
@@ -34,8 +34,8 @@ public class Address
      private String house;
 
 public class PersDocument 
-     private String series;
-     private String number;
+     private String series; Пример // 4020 
+     private String number; Пример // 456786
      private LocalDate issueDate; // Дата выдачи - 18 лет (Отсчитывать от даты рождения)
      private LocalDate valDate; // Срок действия + 25 лет от даты выдачи
 
@@ -52,6 +52,3 @@ public class Bank
  
 2. Вставить генерацию холдеров в PersInfoDaoImpl, 
 написать реализацию метода findHolderBetweenDateOfBirth и добавить метод List<CardHolder> findAll() по метке TODO.
-
-
-    

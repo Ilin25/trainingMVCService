@@ -12,6 +12,9 @@ import java.util.List;
 public class BankFabric {
 
     private List<String> readListBank() throws IOException {
+// TODO randomBank не говорящее название. Что ты конкретно хранишь в этой переменной? + множественное число.Проверь все именования на предмет множественности в коллекциях.
+        // List<Bank> randomBanks = new ArrayList<>(); Вот тут хранятся банки.
+        // А у тебя что-то другое.
 
         List<String> randomBank = new ArrayList<>();
         FileReader fileReader = new FileReader(Constants.FILE_BANK);
@@ -23,7 +26,7 @@ public class BankFabric {
         return randomBank;
 
     }
-
+// TODO banksName - > bankNames
     private String makeRandomBankName() throws IOException {
 
         List<String> banksName = readListBank();

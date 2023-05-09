@@ -1,4 +1,4 @@
-package main.ru;
+package ru;
 
 import ru.Util;
 import ru.entity.CardHolder;

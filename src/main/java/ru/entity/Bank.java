@@ -3,6 +3,7 @@ package ru.entity;
 import java.util.Objects;
 
 public class Bank {
+
     private String bik;
     private String name;
 
