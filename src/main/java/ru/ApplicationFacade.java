@@ -12,7 +12,7 @@ import java.util.List;
 public class ApplicationFacade {
 
     public static void main(String[] args) throws IOException {
-        CardHolderFabric holderFabric = new CardHolderFabric();
+
         PersInfoDaoImpl persInfoDao = new PersInfoDaoImpl();
         LocalDate dateFrom = LocalDate.of(1900,10,10);
         LocalDate dateTo = LocalDate.of(2020,10,10);

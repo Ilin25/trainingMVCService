@@ -19,9 +19,6 @@ import java.util.stream.Collectors;
 public class PersInfoDaoImpl implements PersInfoDao {
 
 
-    static{
-
-    }
     // TODO Написать реализацию в методе.
     // Генерировать 100000 Холдеров и возвращать из них список тех,
     // кто подходит под переданные в параметрах критерии.
