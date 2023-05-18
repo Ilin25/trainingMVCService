@@ -19,6 +19,9 @@ import java.util.stream.Collectors;
 public class PersInfoDaoImpl implements PersInfoDao {
 
 
+    static{
+
+    }
     // TODO Написать реализацию в методе.
     // Генерировать 100000 Холдеров и возвращать из них список тех,
     // кто подходит под переданные в параметрах критерии.
@@ -28,7 +31,7 @@ public class PersInfoDaoImpl implements PersInfoDao {
         List<CardHolder> holderBetweenDateOfBirth = new ArrayList<>();
         try {
             List<CardHolder> cardHolders = findAll();
-            for (CardHolder holder: cardHolders){
+            for (CardHolder holder : cardHolders){
                 if (holder.getPersInfo().getDateOfBirth().isAfter(from) && holder.getPersInfo().getDateOfBirth().isBefore(to) ){
                     holderBetweenDateOfBirth.add(holder);
                 }
@@ -44,7 +47,7 @@ public class PersInfoDaoImpl implements PersInfoDao {
 //        try {
 //            List<CardHolder> cardHolders = findAll();
 //            holderBetweenDateOfBirth = cardHolders.stream()
-//                    .filter(e->e.getPersInfo().getDateOfBirth().isAfter(from)&&e.getPersInfo().getDateOfBirth().isBefore(to))
+//                    .filter(e->e.getPersInfo().getDateOfBirth().isAfter(from) && e.getPersInfo().getDateOfBirth().isBefore(to))
 //                    .collect(Collectors.toList());
 //        } catch (IOException e) {
 //            e.printStackTrace();

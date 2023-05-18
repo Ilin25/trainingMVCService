@@ -6,14 +6,10 @@ import ru.entity.CardHolder;
 import ru.entity.Gender;
 import ru.entity.PersInfo;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
+
 
 public class CardHolderFabric {
 
@@ -42,7 +38,6 @@ public class CardHolderFabric {
         return randomHolders;
     }
 
-
     private List<CardHolder> makeRandomManHolders(int manCounter) throws IOException {
         List<CardHolder> manRandomHolders = new ArrayList<>(manCounter);
         for (int i = 0; i < manCounter; i++) {
@@ -52,7 +47,6 @@ public class CardHolderFabric {
         return manRandomHolders;
     }
 
-
     private List<CardHolder> makeRandomGirlHolders(int girlCounter) throws IOException {
         List<CardHolder> girlRandomHolders = new ArrayList<>(girlCounter);
         for (int i = 0; i < girlCounter; i++) {
@@ -60,7 +54,6 @@ public class CardHolderFabric {
         }
         return girlRandomHolders;
     }
-
 
     private List<Card> generateRandomAmountActiveAndNotActiveCards() throws IOException {
         int maxCard = 10;
