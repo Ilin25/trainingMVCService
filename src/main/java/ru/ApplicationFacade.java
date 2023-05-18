@@ -14,13 +14,12 @@ public class ApplicationFacade {
     public static void main(String[] args) throws IOException {
         CardHolderFabric holderFabric = new CardHolderFabric();
         PersInfoDaoImpl persInfoDao = new PersInfoDaoImpl();
-        LocalDate dateFrom = LocalDate.of(1980,10,10);
-        LocalDate dateTo = LocalDate.of(1985,10,10);
-//        List<CardHolder> cardHolders = holderFabric.makeRandomHolders(20,20);
-//        Util.viewHolders(cardHolders);
-        System.out.println(persInfoDao.findHolderBetweenDateOfBirth(dateFrom,dateTo));
+        LocalDate dateFrom = LocalDate.of(1900,10,10);
+        LocalDate dateTo = LocalDate.of(2020,10,10);
 
-
+        List<CardHolder> cardHolders = persInfoDao.findHolderBetweenDateOfBirth(dateFrom,dateTo);
+        Util.viewHolders(cardHolders);
+        System.out.println();
 
         /**Здесь будет создание сущностей и запуск приложения*/
 

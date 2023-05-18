@@ -58,7 +58,7 @@ public class PersInfoDaoImpl implements PersInfoDao {
 
     private List<CardHolder> findAll() throws IOException {
         CardHolderFabric holderFabric = new CardHolderFabric();
-        List<CardHolder> cardHolders = holderFabric.makeRandomHolders(50000,50000);
+        List<CardHolder> cardHolders = holderFabric.makeRandomHolders(10,10);
         return cardHolders;
     }
 }
