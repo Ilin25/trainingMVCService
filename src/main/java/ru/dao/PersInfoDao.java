@@ -13,7 +13,7 @@ import java.util.List;
  * */
 public interface PersInfoDao {
 
-    List<CardHolder> findHolderBetweenDateOfBirth(LocalDate from, LocalDate to);
+
 
 
 }

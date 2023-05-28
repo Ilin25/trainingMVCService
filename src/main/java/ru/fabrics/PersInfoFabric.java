@@ -22,8 +22,6 @@ public class PersInfoFabric {
         fillFio(persInfo, anyFios);
         persInfo.setDateOfBirth(makeRandomDateOfBirth());
         persInfo.setGender(gender);
-        Period period = Period.between(persInfo.getDateOfBirth(), LocalDate.now());
-        persInfo.setAge(period.getYears());
         return persInfo;
 
     }

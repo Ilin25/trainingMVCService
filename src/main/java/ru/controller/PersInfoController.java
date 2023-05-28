@@ -1,8 +1,10 @@
 package ru.controller;
 
+import ru.dto.ValidateResults;
 import ru.generatedSources.PersInfoBetweenDateOfBirthRequest;
 import ru.generatedSources.PersInfoBetweenDateOfBirthResponse;
 import ru.services.PersInfoService;
+import ru.validators.RequestValidator;
 import ru.validators.Validator;
 
 /**
@@ -13,10 +15,10 @@ import ru.validators.Validator;
  * Далее происходит его обработка согласно регламента взаимодействия.
  */
 
-
+ //@RestController
 public class PersInfoController {
 
-    private Validator validator;
+    private Validator validator = new RequestValidator();
     private PersInfoService persInfoService;
 
     /**
@@ -24,7 +26,17 @@ public class PersInfoController {
      * В реальности его должен дёргать сторонний сервис
      */
 
+ //@GetMapping("/getPersInfoBeetweenDate")
     public PersInfoBetweenDateOfBirthResponse getPersInfo(PersInfoBetweenDateOfBirthRequest request) {
-        return null;
+
+        PersInfoBetweenDateOfBirthResponse response = null;
+        ValidateResults validateResults = (ValidateResults) validator.validate(request);
+
+        if(validateResults.isValid()){
+            response = persInfoService.handlePersInfoBetweenDateRequest(request);
+        }
+
+        return response;
     }
+
 }
