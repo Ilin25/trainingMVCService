@@ -25,4 +25,6 @@ public class ValidateResults {
     public void setErrorsEnums(List<ErrorsEnum> errorsEnums) {
         this.errorsEnums = errorsEnums;
     }
+
+
 }

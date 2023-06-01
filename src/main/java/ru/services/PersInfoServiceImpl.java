@@ -23,12 +23,9 @@ public class PersInfoServiceImpl implements PersInfoService {
     public PersInfoBetweenDateOfBirthResponse handlePersInfoBetweenDateRequest(PersInfoBetweenDateOfBirthRequest request) {
         List<CardHolder> holders = cardHolderDao.findHolderBetweenDateOfBirth(request.getDateOfBirthFrom(),request.getDateOfBirthTo());
         List<PersInfoResponse> responses = new ArrayList<>();
-
-
         for (CardHolder holder : holders) {
             PersInfoResponse persInfoResponse = new PersInfoResponse();
             PersonalInfo personalInfo = new PersonalInfo();
-            PersInfo persInfo = new PersInfo();
             String lastName = holder.getPersInfo().getLastName();
             personalInfo.setLastName(lastName);
             personalInfo.setFirstName(holder.getPersInfo().getFirstName());
@@ -36,7 +33,6 @@ public class PersInfoServiceImpl implements PersInfoService {
             persInfoResponse.setPersonalInfo(personalInfo);
             responses.add(persInfoResponse);
         }
-
         PersInfoBetweenDateOfBirthResponse response = new PersInfoBetweenDateOfBirthResponse();
         response.setResponses(responses);
 

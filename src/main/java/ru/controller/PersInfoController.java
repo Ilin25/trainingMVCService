@@ -28,14 +28,11 @@ public class PersInfoController {
 
  //@GetMapping("/getPersInfoBeetweenDate")
     public PersInfoBetweenDateOfBirthResponse getPersInfo(PersInfoBetweenDateOfBirthRequest request) {
-
         PersInfoBetweenDateOfBirthResponse response = null;
         ValidateResults validateResults = (ValidateResults) validator.validate(request);
-
         if(validateResults.isValid()){
             response = persInfoService.handlePersInfoBetweenDateRequest(request);
         }
-
         return response;
     }
 
