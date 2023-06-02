@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 public class Card {
+
     private String number;
     private LocalDate issueDate;
     private boolean isActive;

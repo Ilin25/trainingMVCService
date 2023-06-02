@@ -3,7 +3,7 @@ package ru.controller;
 import ru.dto.ValidateResults;
 import ru.generatedSources.PersInfoBetweenDateOfBirthRequest;
 import ru.generatedSources.PersInfoBetweenDateOfBirthResponse;
-import ru.services.PersInfoService;
+import ru.services.HolderService;
 import ru.validators.RequestValidator;
 import ru.validators.Validator;
 
@@ -19,7 +19,7 @@ import ru.validators.Validator;
 public class PersInfoController {
 
     private Validator validator = new RequestValidator();
-    private PersInfoService persInfoService;
+    private HolderService holderService;
 
     /**
      * Этот метод контроллера принимает входящий запрос и реализует его обработку
@@ -33,7 +33,7 @@ public class PersInfoController {
         ValidateResults validateResults = (ValidateResults) validator.validate(request);
 
         if(validateResults.isValid()){
-            response = persInfoService.handlePersInfoBetweenDateRequest(request);
+            response = holderService.handlePersInfoBetweenDateRequest(request);
         }
 
         return response;

@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class CardHolderDaoImpl implements CardHolderDao {
+
+
     @Override
     public List<CardHolder> findHolderBetweenDateOfBirth(LocalDate from, LocalDate to) {
         List<CardHolder> holderBetweenDateOfBirth = new ArrayList<>();

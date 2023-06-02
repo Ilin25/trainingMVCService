@@ -16,10 +16,10 @@ public class ApplicationFacade {
     public static void main(String[] args) throws IOException {
 
         CardHolderDao cardHolderDao = new CardHolderDaoImpl();
-        LocalDate dateFrom = LocalDate.of(1999,10,10);
-        LocalDate dateTo = LocalDate.of(2020,10,10);
+        LocalDate dateFrom = LocalDate.of(1990,10,10);
+        LocalDate dateTo = LocalDate.of(2012,10,10);
 
-        System.out.println(  cardHolderDao.findHolderBetweenDateOfBirth(dateFrom,dateTo));
+        System.out.println(cardHolderDao.findHolderBetweenDateOfBirth(dateFrom,dateTo));
 
 
         /**Здесь будет создание сущностей и запуск приложения*/
