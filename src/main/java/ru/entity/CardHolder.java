@@ -1,8 +1,7 @@
 package ru.entity;
-
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
+
 
 public class CardHolder {
 
@@ -12,20 +11,16 @@ public class CardHolder {
     private PersInfo persInfo;
 
 
-
     public CardHolder() {
 
     }
 
-    public CardHolder(PersInfo persInfo,PersDocument persDocument, List cards, Address addresses) {
-        this.persInfo = persInfo;
-        this.persDocument = persDocument;
+    public CardHolder(List<Card> cards, Address addresses, PersDocument persDocument, PersInfo persInfo) {
         this.cards = cards;
-        this.addresses =addresses;
-
+        this.addresses = addresses;
+        this.persDocument = persDocument;
+        this.persInfo = persInfo;
     }
-
-
 
     public List<Card> getCards() {
         return cards;
@@ -61,39 +56,30 @@ public class CardHolder {
 
     @Override
     public String toString() {
-        String result = String.format("%s  %s  %s%n" ,persDocument,persInfo,addresses);
+        String result = String.format("Документ : %s%nПерсинфо: %s%nАдрес: %s%n" ,persDocument,persInfo,addresses);
         return result;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof CardHolder)) return false;
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//        CardHolder holder = (CardHolder) o;
-//        return Objects.equals(lastName, holder.lastName)
-//                && Objects.equals(firstName, holder.firstName)
-//                && Objects.equals(middleName, holder.middleName)
-//                && Objects.equals(dateOfBirth, holder.dateOfBirth)
-//                && Objects.equals(gender, holder.gender) && Objects.equals(cards, holder.cards)
-//                && Objects.equals(age, holder.age)
-//                && Objects.equals(addresses, holder.addresses);
-//
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(lastName, firstName, middleName, dateOfBirth, gender, cards, age);
-//    }
-//
-//    public boolean isHasNotActiveCards() {
-//        for (Card card : this.cards) {
-//            if (!card.isActive()) {
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
+        CardHolder that = (CardHolder) o;
 
-
+        if (!Objects.equals(cards, that.cards)) return false;
+        if (!Objects.equals(addresses, that.addresses)) return false;
+        if (!Objects.equals(persDocument, that.persDocument)) return false;
+        return Objects.equals(persInfo, that.persInfo);
     }
+
+    @Override
+    public int hashCode() {
+        int result = cards != null ? cards.hashCode() : 0;
+        result = 31 * result + (addresses != null ? addresses.hashCode() : 0);
+        result = 31 * result + (persDocument != null ? persDocument.hashCode() : 0);
+        result = 31 * result + (persInfo != null ? persInfo.hashCode() : 0);
+        return result;
+    }
+
+}

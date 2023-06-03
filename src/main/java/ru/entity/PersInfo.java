@@ -64,18 +64,7 @@ public class PersInfo {
     }
 
 
-
     public String toString() {
-//        String declinationOfWordYears = null;
-//        if (getAge() > 4 & getAge() < 21) {
-//            declinationOfWordYears = "лет";
-//        } else if (getAge() % 10 == 1) {
-//            declinationOfWordYears = "год";
-//        } else if (getAge() % 10 >= 2 & getAge() % 10 <= 4) {
-//            declinationOfWordYears = "года";
-//        } else if (getAge() % 10 >= 5 | getAge() % 10 == 0) {
-//            declinationOfWordYears = "лет";
-//        }
         String result = String.format("%s %s %s %s %s",lastName,firstName,middleName,dateOfBirth,gender);
         return result;
     }
