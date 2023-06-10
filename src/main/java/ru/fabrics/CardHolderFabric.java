@@ -21,16 +21,13 @@ public class CardHolderFabric {
     private final PersInfoFabric persInfoFabric = new PersInfoFabric();
 
 
-// TODO Все холдеры должны быть старше 18 лет. Младше-не генерировать. Не должно создаваться таких вообще.Соответственно все должны быть с документами.Т.К сташе 18
+
     public CardHolder makeRandomHolder(Gender gender) throws IOException {
         CardHolder holder = new CardHolder();
         holder.setPersInfo(persInfoFabric.makeRandomPersInfo(gender));
         holder.setAddresses(addressFabric.makeRandomAddress());
-        Period period = Period.between(holder.getPersInfo().getDateOfBirth(), LocalDate.now());
-        if (period.getYears()>=18) {
-            holder.setPersDocument(persDocumentFabric.makeRandomPersDocument(holder.getPersInfo().getDateOfBirth()));
-            holder.setCards(generateRandomAmountActiveAndNotActiveCards());
-        }
+        holder.setPersDocument(persDocumentFabric.makeRandomPersDocument(holder.getPersInfo().getDateOfBirth()));
+        holder.setCards(generateRandomAmountActiveAndNotActiveCards());
         return holder;
     }
 

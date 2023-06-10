@@ -12,29 +12,26 @@ import java.util.List;
 public class BankFabric {
 
     private List<String> readListBank() throws IOException {
-// TODO randomBank не говорящее название. Что ты конкретно хранишь в этой переменной? + множественное число.Проверь все именования на предмет множественности в коллекциях.
-        // List<Bank> randomBanks = new ArrayList<>(); Вот тут хранятся банки.
-        // А у тебя что-то другое.
 
-        List<String> randomBank = new ArrayList<>();
+
+        List<String> randomBanks = new ArrayList<>();
         FileReader fileReader = new FileReader(Constants.FILE_BANK);
         BufferedReader br = new BufferedReader(fileReader);
         String line;
         while ((line = br.readLine()) != null) {
-            randomBank.add(line);
+            randomBanks.add(line);
         }
-        return randomBank;
+        return randomBanks;
 
     }
-// TODO banksName - > bankNames
     private String makeRandomBankName() throws IOException {
 
-        List<String> banksName = readListBank();
+        List<String> banksNames = readListBank();
         String randomBankName;
         int minIndex = 0;
-        int maxIndex = banksName.size()-1;
+        int maxIndex = banksNames.size()-1;
         int randomIndex = (int) ((Math.random() * (maxIndex-minIndex)) + minIndex);
-        randomBankName = banksName.get(randomIndex);
+        randomBankName = banksNames.get(randomIndex);
         return randomBankName;
 
     }

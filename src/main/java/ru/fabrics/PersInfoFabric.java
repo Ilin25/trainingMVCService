@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -48,7 +49,7 @@ public class PersInfoFabric {
     private LocalDate makeRandomDateOfBirth(){
         Random random = new Random();
         int minDay = (int) LocalDate.of(1930, 1, 1).toEpochDay();
-        int maxDay = (int) LocalDate.of(2020, 1, 1).toEpochDay();
+        int maxDay = (int)(LocalDate.now().minusYears(18)).toEpochDay();
         long randomDay = minDay + random.nextInt(maxDay - minDay);
         LocalDate randomDateOfBirth = LocalDate.ofEpochDay(randomDay);
         return randomDateOfBirth;
