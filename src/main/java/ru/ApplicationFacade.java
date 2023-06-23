@@ -1,27 +1,32 @@
 package ru;
 
 import ru.Util;
+import ru.controller.PersInfoController;
 import ru.dao.CardHolderDao;
 import ru.dao.CardHolderDaoImpl;
 import ru.dao.PersInfoDaoImpl;
 import ru.entity.CardHolder;
 import ru.fabrics.CardHolderFabric;
+import ru.generatedSources.PersInfoBetweenDateOfBirthRequest;
+import ru.services.HolderServiceImpl;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.List;
+import java.time.LocalDateTime;
 
 public class ApplicationFacade {
 
     public static void main(String[] args) throws IOException {
 
-//        CardHolderDao cardHolderDao = new CardHolderDaoImpl();
-//        LocalDate dateFrom = LocalDate.of(1990,10,10);
-//        LocalDate dateTo = LocalDate.of(2012,10,10);
-//
-//        System.out.println(cardHolderDao.findHolderBetweenDateOfBirth(dateFrom,dateTo));
-        System.out.println(new CardHolderFabric().makeRandomHolders(35,35));
+      /***Запрос будет присылать сторонний сервис**/
+        PersInfoBetweenDateOfBirthRequest request = new PersInfoBetweenDateOfBirthRequest();
+        request.setDateOfBirthFrom(LocalDate.now().minusYears(100));
+        request.setDateOfBirthTo(LocalDate.now());
+        request.setSendDate(LocalDateTime.now());
 
+        /** Контроллер,который будет ловить запрос пока создаём так */
+        PersInfoController controller = new PersInfoController();
+        controller.getPersInfo(request);
 
         /**Здесь будет создание сущностей и запуск приложения*/
 

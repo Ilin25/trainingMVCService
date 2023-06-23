@@ -13,15 +13,14 @@ public class BankFabric {
 
     private List<String> readListBank() throws IOException {
 
-
-        List<String> randomBanks = new ArrayList<>();
+        List<String> randomBankNames = new ArrayList<>();
         FileReader fileReader = new FileReader(Constants.FILE_BANK);
         BufferedReader br = new BufferedReader(fileReader);
         String line;
         while ((line = br.readLine()) != null) {
-            randomBanks.add(line);
+            randomBankNames.add(line);
         }
-        return randomBanks;
+        return randomBankNames;
 
     }
     private String makeRandomBankName() throws IOException {

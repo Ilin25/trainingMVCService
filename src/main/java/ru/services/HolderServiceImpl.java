@@ -13,6 +13,7 @@ import java.util.List;
 public class HolderServiceImpl implements HolderService {
 
     private CardHolderDao cardHolderDao = new CardHolderDaoImpl();
+
     @Override
     public PersInfoBetweenDateOfBirthResponse handlePersInfoBetweenDateRequest(PersInfoBetweenDateOfBirthRequest request) {
         List<CardHolder> holders = cardHolderDao.findHolderBetweenDateOfBirth(request.getDateOfBirthFrom(),request.getDateOfBirthTo());

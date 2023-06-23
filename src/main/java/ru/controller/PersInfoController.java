@@ -19,8 +19,8 @@ import ru.validators.Validator;
  //@RestController
 public class PersInfoController {
 
-    private Validator validator = new RequestValidator();
-    private HolderServiceImpl holderServiceImpl;
+    //private Validator validator = new RequestValidator();
+    private HolderServiceImpl holderServiceImpl = new HolderServiceImpl();
 
     /**
      * Этот метод контроллера принимает входящий запрос и реализует его обработку
@@ -29,11 +29,7 @@ public class PersInfoController {
 
  //@GetMapping("/getPersInfoBeetweenDate")
     public PersInfoBetweenDateOfBirthResponse getPersInfo(PersInfoBetweenDateOfBirthRequest request) {
-        PersInfoBetweenDateOfBirthResponse response = null;
-        ValidateResults validateResults = (ValidateResults) validator.validate(request);
-        if(validateResults.isValid()){
-            response = holderServiceImpl.handlePersInfoBetweenDateRequest(request);
-        }
+        PersInfoBetweenDateOfBirthResponse response = holderServiceImpl.handlePersInfoBetweenDateRequest(request);
         return response;
     }
 
