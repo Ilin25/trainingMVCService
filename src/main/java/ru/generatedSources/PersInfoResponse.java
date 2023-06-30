@@ -1,7 +1,5 @@
 package ru.generatedSources;
 
-import ru.enums.ErrorsEnum;
-
 import java.util.List;
 /**В реальности эти классы будут генерироваться сторонней библиотекой */
 /** Блок иперсональной информации */
@@ -11,16 +9,14 @@ public class PersInfoResponse {
     private PersonalInfo personalInfo;
     private DocInfo docInfo;
     private List<CardInfo> cardInfos;
-    private List<ErrorsEnum> errorsEnums;
 
     public PersInfoResponse() {
     }
 
-    public PersInfoResponse(PersonalInfo personalInfo, DocInfo docInfo, List<CardInfo> cardInfos, List<ErrorsEnum> errorsEnums) {
+    public PersInfoResponse(PersonalInfo personalInfo, DocInfo docInfo, List<CardInfo> cardInfos) {
         this.personalInfo = personalInfo;
         this.docInfo = docInfo;
         this.cardInfos = cardInfos;
-        this.errorsEnums = errorsEnums;
     }
 
     public PersonalInfo getPersonalInfo() {
@@ -47,11 +43,4 @@ public class PersInfoResponse {
         this.cardInfos = cardInfos;
     }
 
-    public List<ErrorsEnum> getErrorsEnums() {
-        return errorsEnums;
-    }
-
-    public void setErrorsEnums(List<ErrorsEnum> errorsEnums) {
-        this.errorsEnums = errorsEnums;
-    }
 }

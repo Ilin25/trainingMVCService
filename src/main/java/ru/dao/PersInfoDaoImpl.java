@@ -18,6 +18,4 @@ import java.util.stream.Collectors;
  * */
 public class PersInfoDaoImpl implements PersInfoDao {
 
-
-
 }
